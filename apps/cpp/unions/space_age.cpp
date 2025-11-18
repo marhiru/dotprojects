@@ -1,6 +1,7 @@
 #include <array>
-#include <iomanip>
+#include <ios>
 #include <iostream>
+#include <ostream>
 #include <string>
 
 #define EARTH_PERIOD 365.2425
@@ -36,8 +37,8 @@ void secondsToAges(long long seconds) {
   for (const auto &p : planets) {
     double planet_age = ages / p.period;
 
-    std::cout << std::left << std::setw(10) << p.planet << ": " << std::fixed
-              << std::setprecision(2) << planet_age << " years" << std::endl;
+    std::cout << std::left << p.planet << ": " << std::right << p.period
+              << std::fixed << std::endl;
   }
 }
 
