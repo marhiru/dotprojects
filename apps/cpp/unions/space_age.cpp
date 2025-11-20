@@ -1,39 +1,48 @@
-#include "space_age.h"
-#include <cstdio>
+#include <array>
+#include <ios>
+#include <iostream>
+#include <ostream>
 #include <string>
+
+#define EARTH_PERIOD 365.2425
 
 class Planets {
 public:
-    std::string planet;
-    double delta;
+  std::string planet;
+  float period;
 
-    const double period = 365.2425;
-    
-    Planets() : planet("Unknown"), delta(0.0);
-    Planets(std::string p, double d) : planet(p), delta(d);
+  Planets() : planet(""), period(0.0) {}
+
+  Planets(const std::string &p, float d) : planet(p), period(d) {}
 };
 
-// float PeriodInSeconds(long long *seconds) {
-//     float ages = static_cast<float>(days) / 60 / 60 / 24;
-//
-//     return ages;
-// }
+void secondsToAges(long long seconds) {
+  const long long EARTH_PERIOD_SECONDS = EARTH_PERIOD * 24.0 * 60.0 * 60.0;
+  const double ages = static_cast<double>(seconds) / EARTH_PERIOD_SECONDS;
+
+  std::array<Planets, 8> planets = {
+      Planets("mercury", 0.2408467 * EARTH_PERIOD),
+      Planets("venus", 0.61519726 * EARTH_PERIOD),
+      Planets("earth", 1.0 * EARTH_PERIOD),
+      Planets("mars", 1.8808158 * EARTH_PERIOD),
+      Planets("jupiter", 11.862615 * EARTH_PERIOD),
+      Planets("saturn", 29.447498 * EARTH_PERIOD),
+      Planets("uranus", 84.016846 * EARTH_PERIOD),
+      Planets("neptune", 164.79132 * EARTH_PERIOD),
+  };
+
+  int i = 0;
+  std::cout << "Your age would be:" << std::endl;
+
+  for (const auto &p : planets) {
+    double planet_age = ages / p.period;
+
+    std::cout << std::left << p.planet << ": " << std::right << p.period
+              << std::fixed << std::endl;
+  }
+}
 
 int main() {
-    Planets planets[8] = {
-        Planets("earth", 1.0 * period),
-        Planets("mercury", 0.2408467 * period),
-        Planets("venus", 0.61519726 * period),
-        Planets("mars", 1.8808158 * period),
-        Planets("jupiter", 11.862615 * period),
-        Planets("saturn", 29.447498 * period),
-        Planets("uranus", 84.016846 * period),
-        Planets("neptune", 164.79132 * period),
-    };
-
-    for (int i = 0; i < 8; i++) {
-        std::printf("%f", planets[i]);
-    }
-
-    return 0;
+  secondsToAges(31600000);
+  return 0;
 }
