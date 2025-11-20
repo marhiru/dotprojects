@@ -1,2 +1,5 @@
 # Output files
 *.out
+
+# Nodemodules
+node_modules
