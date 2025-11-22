@@ -1,8 +1,24 @@
 const std = @import("std");
+const expect = std.testing.expect;
+
+const variableType = enum {
+    junior,
+};
+
+const variable = union(variableType) {
+    junior: []const u8,
+};
+
+test "executes union_variable" {
+    const u = variable{
+        .junior = "Juniores",
+    };
+
+    try expect(@as(variableType, u) == variableType.junior);
+}
 
 pub fn main() void {
-    var i: i32 = 1;
-    while (i <= 10) : (i += 1) {
-        std.debug.print("{d} squared is {d}\n", .{ i, i * i });
-    }
+    const print = std.debug.print;
+
+    print("Olá, mundo via Zig!", .{});
 }
