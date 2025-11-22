@@ -3,3 +3,7 @@
 
 # Nodemodules
 node_modules
+
+# Zig cache/out paths
+.zig-cache
+zig-out
