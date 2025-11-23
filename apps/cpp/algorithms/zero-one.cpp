@@ -21,6 +21,7 @@ int main() {
   Main MyClass;
 
   for (int i = 0; i < 8; i++) {
+    for (int v{0}; v < i; v++) {
     std::cout << i;
   }
   return 0;
