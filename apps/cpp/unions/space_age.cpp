@@ -38,7 +38,7 @@ void secondsToAges(long long seconds) {
     double planet_age = ages / p.period;
 
     std::cout << std::left << p.planet << ": " << std::right << p.period
-              << std::fixed << std::endl;
+              << std::fixed << "\n";
   }
 }
 
