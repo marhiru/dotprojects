@@ -18,12 +18,12 @@ enum class PlanetID {
   NEPTUNE
 };
 
-struct PlanetData {
+struct Planet {
   std::string name;
   double orbital_exp;
 };
 
-inline const std::map<PlanetID, PlanetData> Planet = {
+inline const std::map<PlanetID, Planet> Planet = {
     {PlanetID::MERCURY, {"Mercury", 0.2408467}},
     {PlanetID::VENUS, {"Venus", 0.61519726}},
     {PlanetID::EARTH, {"Earth", 1.0}},
@@ -33,7 +33,7 @@ inline const std::map<PlanetID, PlanetData> Planet = {
     {PlanetID::URANUS, {"Uranus", 84.016846}},
     {PlanetID::NEPTUNE, {"Neptune", 164.79132}}};
 
-inline double get_period_multiplier(PlanetID planet_id) {
+inline double get_exp(PlanetID planet_id) {
   return Planet.at(planet_id).orbital_exp;
 }
 
