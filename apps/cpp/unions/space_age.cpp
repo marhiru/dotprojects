@@ -11,7 +11,7 @@ void secondsToAges(long long seconds) {
       static_cast<double>(seconds) / EARTH_SECONDS_PER_YEAR;
 
   std::cout << "Your age would be (in Earth years: " << std::fixed
-            << std::setprecision(2) << earth_years_base << "):" << std::endl;
+            << std::setprecision(2) << earth_years_base << "):\n";
   std::cout << "--------------------------------\n";
 
   for (const auto &pair : Planet) {
@@ -26,7 +26,7 @@ void secondsToAges(long long seconds) {
 }
 
 double calculate_age(long long seconds, PlanetID planet_id) {
-  double period_multiplier = get_period_multiplier(planet_id);
+  double period_multiplier = get_exp(planet_id);
   double earth_years = static_cast<double>(seconds) / EARTH_SECONDS_PER_YEAR;
   return earth_years / period_multiplier;
 }
