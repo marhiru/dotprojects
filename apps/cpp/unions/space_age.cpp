@@ -1,48 +1,39 @@
-#include <array>
-#include <ios>
+#include "space_age.h"
+#include <iomanip>
 #include <iostream>
-#include <ostream>
 #include <string>
 
-#define EARTH_PERIOD 365.2425
-
-class Planets {
-public:
-  std::string planet;
-  float period;
-
-  Planets() : planet(""), period(0.0) {}
-
-  Planets(const std::string &p, float d) : planet(p), period(d) {}
-};
+namespace space_age {
+const double EARTH_SECONDS_PER_YEAR = 31557600.0;
 
 void secondsToAges(long long seconds) {
-  const long long EARTH_PERIOD_SECONDS = EARTH_PERIOD * 24.0 * 60.0 * 60.0;
-  const double ages = static_cast<double>(seconds) / EARTH_PERIOD_SECONDS;
+  const double earth_years_base =
+      static_cast<double>(seconds) / EARTH_SECONDS_PER_YEAR;
 
-  std::array<Planets, 8> planets = {
-      Planets("mercury", 0.2408467 * EARTH_PERIOD),
-      Planets("venus", 0.61519726 * EARTH_PERIOD),
-      Planets("earth", 1.0 * EARTH_PERIOD),
-      Planets("mars", 1.8808158 * EARTH_PERIOD),
-      Planets("jupiter", 11.862615 * EARTH_PERIOD),
-      Planets("saturn", 29.447498 * EARTH_PERIOD),
-      Planets("uranus", 84.016846 * EARTH_PERIOD),
-      Planets("neptune", 164.79132 * EARTH_PERIOD),
-  };
+  std::cout << "Your age would be (in Earth years: " << std::fixed
+            << std::setprecision(2) << earth_years_base << "):\n";
+  std::cout << "--------------------------------\n";
 
-  int i = 0;
-  std::cout << "Your age would be:" << std::endl;
+  for (const auto &pair : Planet) {
+    const std::string &planet_name = pair.second.name;
+    const double period_multiplier = pair.second.orbital_exp;
 
-  for (const auto &p : planets) {
-    double planet_age = ages / p.period;
+    double planet_age = earth_years_base / period_multiplier;
 
-    std::cout << std::left << p.planet << ": " << std::right << p.period
-              << std::fixed << "\n";
+    std::cout << std::left << std::setw(10) << planet_name << ": " << std::right
+              << std::setprecision(4) << planet_age << " years\n";
   }
 }
 
+double calculate_age(long long seconds, PlanetID planet_id) {
+  double period_multiplier = get_exp(planet_id);
+  double earth_years = static_cast<double>(seconds) / EARTH_SECONDS_PER_YEAR;
+  return earth_years / period_multiplier;
+}
+
+} // namespace space_age
+
 int main() {
-  secondsToAges(31600000);
+  space_age::secondsToAges(100000LL);
   return 0;
 }
