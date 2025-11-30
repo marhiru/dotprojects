@@ -1,3 +1,5 @@
+#include "io.h"
+
 struct CPU {
   using Byte = unsigned char;
   using Word = unsigned short;
@@ -8,4 +10,7 @@ struct CPU {
   Byte A, X, Y;
 };
 
-int main() { return 0; }
+int main() {
+  io::println("teste");
+  return 0;
+}
