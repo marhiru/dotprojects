@@ -1,5 +1,5 @@
-#include "io.h"
 
+#include "io.hpp"
 struct CPU {
   using Byte = unsigned char;
   using Word = unsigned short;
@@ -11,6 +11,7 @@ struct CPU {
 };
 
 int main() {
-  io::println("teste");
+  io::println("Teste IO library com o println");
+
   return 0;
 }
