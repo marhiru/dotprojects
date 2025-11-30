@@ -1,10 +1,6 @@
 # Output files
 *.out
 
-# Binaries ignore
-*
-!*.*
-
 # Nodemodules
 node_modules
 
@@ -19,4 +15,5 @@ CMakeFiles
 *.cmake
 compile_commands.json
 .cache/
+build/
 
