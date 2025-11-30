@@ -10,10 +10,6 @@ zig-out
 
 # CMake
 CMakeCache.txt
-MakeFile
-CMakeFiles
-*.cmake
 compile_commands.json
-.cache/
 build/
 
