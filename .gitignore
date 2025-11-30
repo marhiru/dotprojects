@@ -7,3 +7,9 @@ node_modules
 # Zig cache/out paths
 .zig-cache
 zig-out
+
+# CMake
+CMakeCache.txt
+MakeFile
+CMakeFiles
+*.cmake
