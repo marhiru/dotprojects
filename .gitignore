@@ -1,7 +1,7 @@
 # Output files
 *.out
 
-# Nodemodules
+# Node modules
 node_modules
 
 # Zig cache/out paths
