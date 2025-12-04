@@ -9,6 +9,7 @@ node_modules
 zig-out
 
 # CMake
+.cache/
 CMakeCache.txt
 compile_commands.json
 build/
