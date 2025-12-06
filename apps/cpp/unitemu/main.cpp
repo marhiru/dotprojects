@@ -3,8 +3,8 @@
 
 int main() {
   using mio::println;
-  println("Teste IO library com o println");
-  std::printf("as");
+  std::string teste{"string"};
+  println("Teste IO {%s} library com o println", teste);
 
   return 0;
 }
