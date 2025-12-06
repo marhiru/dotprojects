@@ -6,7 +6,8 @@
 #ifndef MIO_H
 #define MIO_H
 
-template <typename... T> int println(const char *fmt, T &&...arg) {
+template <typename... T>
+int println(const char *fmt, T &&...arg) {
   if constexpr (sizeof...(T) != 0) {
     const int n = std::printf(fmt, std::forward<T>(arg)...);
     std::putchar('\n');
