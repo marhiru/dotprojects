@@ -1,7 +1,7 @@
 # Output files
 *.out
 
-# Nodemodules
+# Node modules
 node_modules
 
 # Zig cache/out paths
@@ -9,6 +9,7 @@ node_modules
 zig-out
 
 # CMake
+.cache/
 CMakeCache.txt
 compile_commands.json
 build/

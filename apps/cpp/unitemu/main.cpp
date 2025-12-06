@@ -1,17 +1,7 @@
-
-#include "io.hpp"
-struct CPU {
-  using Byte = unsigned char;
-  using Word = unsigned short;
-
-  Word PC;
-  Word SP;
-
-  Byte A, X, Y;
-};
+#include "mio.h"
 
 int main() {
-  io::println("Teste IO library com o println");
-
+  std::string tes{"askdj"};
+  println(tes);
   return 0;
 }
