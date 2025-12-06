@@ -20,5 +20,5 @@ test "executes union_variable" {
 pub fn main() void {
     const print = std.debug.print;
 
-    print("Olá, mundo via Zig!", .{});
+    print("Olá, mundo via Zig!\n", .{});
 }
